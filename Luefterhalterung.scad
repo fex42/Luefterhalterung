@@ -1,4 +1,11 @@
 // Lüfter-Halterung Anzcubic i3 Mega-S (ohne Hub-Platine)
+//
+// TODO:
+// - Luefter ist nicht mittig: muss 3mm nach rechts
+// - Öffnung 2mm nach unten und fr1 1mm kleiner
+// - Lueftersockel ecken abrunden / schöner machen
+// - Loch 3 kann 0,25 mm nach links (und durch 3mm Zylinder ersetzt werden)
+// 
 
 t = 0.001; // tolerance
 
@@ -27,7 +34,6 @@ difference() {
         translate([-31, -7, 28 - plate_height])
             cube([62, 15, plate_height]);
     }
-
 
     difference() {
         // Motorstecker-Aussparung
@@ -64,12 +70,15 @@ difference() {
         rotate([0,17.5,0])
             cube([10, 10, 30]);
 
+    // Loch 1 (links)
     translate([-46, 4, -10])
         cylinder(h = 30, r1 = sr1, r2 = sr1, $fn = 60);
 
+    // Loch 2 (ganz außen)
     translate([117.6 - 46, 4, -10])
         cylinder(h = 30, r1 = sr1, r2 = sr1, $fn = 60);
 
+    // Loch 3 (rechts innen)
     translate([117.6 - 46 - 12.5, 4, -10])
         cylinder(h = 30, r1 = sr1, r2 = sr1, $fn = 60);        
 
@@ -95,9 +104,6 @@ difference() {
         cylinder(h = 30, r1 = fr1, r2 = fr1, $fn = 80);
 
 }
-
-
-
 
 // // Stuetzblock
 // translate([32, -28, -21])
